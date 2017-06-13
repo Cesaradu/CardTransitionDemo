@@ -49,11 +49,11 @@
     self.tableView.dataSource = self;
     [self.view addSubview:self.tableView];
     
-    self.backBtn = [[UIButton alloc] init];
-    [self.backBtn setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
-    [self.backBtn addTarget:self action:@selector(clickBackBtn) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:self.backBtn];
-    [self.backBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+    UIButton *backBtn = [[UIButton alloc] init];
+    [backBtn setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+    [backBtn addTarget:self action:@selector(clickBackBtn) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:backBtn];
+    [backBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.view.mas_top).offset(27);
         make.left.equalTo(self.view.mas_left).offset(15);
         make.width.height.mas_equalTo([self Suit:30]);

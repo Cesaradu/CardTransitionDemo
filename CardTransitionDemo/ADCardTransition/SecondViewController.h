@@ -12,7 +12,6 @@
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, assign) NSInteger index;//点击第几张
-@property (nonatomic, strong) UIButton *backBtn;//返回按钮
 @property (nonatomic, strong) UIImageView *topImageView;//顶部图片
 @property (nonatomic, strong) UIView *titleView;
 

@@ -177,13 +177,8 @@
 		3814DFBC1EEA70CB00AA77FB /* ADCardTransition */ = {
 			isa = PBXGroup;
 			children = (
+				38ABC6D31EEF8AB700926E85 /* ADTransition */,
 				3814DFBB1EEA70CB00AA77FB /* ADCardScrollViewer */,
-				3814E0021EEA735100AA77FB /* FirstViewController.h */,
-				3814E0031EEA735100AA77FB /* FirstViewController.m */,
-				3814E0051EEA73B200AA77FB /* SecondViewController.h */,
-				3814E0061EEA73B200AA77FB /* SecondViewController.m */,
-				3814E0081EEA73FA00AA77FB /* ADCardTransition.h */,
-				3814E0091EEA73FA00AA77FB /* ADCardTransition.m */,
 			);
 			path = ADCardTransition;
 			sourceTree = "<group>";
@@ -282,6 +277,19 @@
 			path = ThirdPart;
 			sourceTree = "<group>";
 		};
+		38ABC6D31EEF8AB700926E85 /* ADTransition */ = {
+			isa = PBXGroup;
+			children = (
+				3814E0021EEA735100AA77FB /* FirstViewController.h */,
+				3814E0031EEA735100AA77FB /* FirstViewController.m */,
+				3814E0051EEA73B200AA77FB /* SecondViewController.h */,
+				3814E0061EEA73B200AA77FB /* SecondViewController.m */,
+				3814E0081EEA73FA00AA77FB /* ADCardTransition.h */,
+				3814E0091EEA73FA00AA77FB /* ADCardTransition.m */,
+			);
+			name = ADTransition;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -313,6 +321,7 @@
 				TargetAttributes = {
 					3814DFA01EEA703E00AA77FB = {
 						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = ADU32B46EL;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -499,6 +508,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = ADU32B46EL;
 				GCC_PREFIX_HEADER = "$(PRODUCT_NAME)/PrefixHeader.pch";
 				INFOPLIST_FILE = CardTransitionDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -511,6 +521,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = ADU32B46EL;
 				GCC_PREFIX_HEADER = "$(PRODUCT_NAME)/PrefixHeader.pch";
 				INFOPLIST_FILE = CardTransitionDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

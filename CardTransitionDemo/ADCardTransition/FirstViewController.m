@@ -21,6 +21,9 @@
 }
 
 - (void)buildUI {
+    
+    self.title = @"卡片";
+    
     self.cardScrollViewer = [[CardScrollViewer alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
     self.cardScrollViewer.delegate = self;
     [self.view addSubview:self.cardScrollViewer];

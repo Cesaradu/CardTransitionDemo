@@ -77,25 +77,42 @@
     
     UIView *containerView = [transitionContext containerView];
     //图片
-    UIView *tempView = [cell.coverImage snapshotViewAfterScreenUpdates:NO];
-    tempView.frame = [cell.coverImage convertRect:cell.coverImage.bounds toView: containerView];
+    UIView *imageView = [cell.coverImage snapshotViewAfterScreenUpdates:NO];
+    imageView.frame = [cell.coverImage convertRect:cell.coverImage.bounds toView: containerView];
+    
+    //titleView
+    UIView *titleView = [cell.titleView snapshotViewAfterScreenUpdates:NO];
+    titleView.frame = [cell.titleView convertRect:cell.titleView.bounds toView:containerView];
     
     //设置动画前的各个控件的状态
     cell.coverImage.hidden = YES;
+    cell.titleView.hidden = YES;
     toVC.view.alpha = 0;
     toVC.topImageView.hidden = YES;
+    toVC.titleView.hidden = YES;
+    toVC.tableView.hidden = YES;
     
     //tempView 添加到containerView中，要保证在最前方，所以后添加
     [containerView addSubview:toVC.view];
-    [containerView addSubview:tempView];
+    [containerView addSubview:titleView];
+    [containerView addSubview:imageView];
     
     //开始做动画
     [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
-        tempView.frame = [toVC.topImageView convertRect:toVC.topImageView.bounds toView:containerView];
+        //图片frame
+        imageView.frame = [toVC.topImageView convertRect:toVC.topImageView.bounds toView:containerView];
+        
+        //titleView frame
+        CGRect titleFrame = titleView.frame;
+        titleFrame.origin = [toVC.titleView convertPoint:toVC.titleView.bounds.origin toView:containerView];
+        titleView.frame = titleFrame;
         toVC.view.alpha = 1;
     } completion:^(BOOL finished) {
-        tempView.hidden = YES;
+        imageView.hidden = YES;
         toVC.topImageView.hidden = NO;
+        titleView.hidden = YES;
+        toVC.titleView.hidden = NO;
+        toVC.tableView.hidden = NO;
         [transitionContext completeTransition:YES];
     }];
     
@@ -121,20 +138,28 @@
     
     UIView *containerView = [transitionContext containerView];
     //这里的lastView就是push时候初始化的那个tempView
-    UIView *tempView = containerView.subviews.lastObject;
+    UIView *imageView = containerView.subviews.lastObject;
+    //titleView
+    UIView *titleView = containerView.subviews[1];
     
     //设置初始状态
     cell.coverImage.hidden = YES;
+    cell.titleView.hidden = YES;
     fromVC.topImageView.hidden = YES;
-    tempView.hidden = NO;
+    fromVC.titleView.hidden = YES;
+    imageView.hidden = NO;
+    titleView.hidden = NO;
     [containerView insertSubview:toVC.view atIndex:0];
     
     [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
-        tempView.frame = [cell.coverImage convertRect:cell.coverImage.bounds toView:containerView];
+        imageView.frame = [cell.coverImage convertRect:cell.coverImage.bounds toView:containerView];
+        titleView.frame = [cell.titleView convertRect:cell.titleView.bounds toView:containerView];
         fromVC.view.alpha = 0;
     } completion:^(BOOL finished) {
         cell.coverImage.hidden = NO;
-        [tempView removeFromSuperview];
+        cell.titleView.hidden = NO;
+        [imageView removeFromSuperview];
+        [titleView removeFromSuperview];
         [transitionContext completeTransition:YES];
     }];
     

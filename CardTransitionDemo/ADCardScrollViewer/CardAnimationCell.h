@@ -13,6 +13,7 @@
 
 @property (nonatomic, strong) UIImageView *coverImage;
 @property (nonatomic, strong) UIView *bgView;
+@property (nonatomic, strong) UIView *titleView;
 @property (nonatomic, strong) UILabel *title;
 @property (nonatomic, strong) UILabel *price;
 @property (nonatomic, strong) UILabel *favoriteLabel;

@@ -86,7 +86,7 @@
         return;
     }
     
-    [UIView animateWithDuration:0.8 delay:0 usingSpringWithDamping:0.8 initialSpringVelocity:3 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+    [UIView animateWithDuration:0.6 delay:0 usingSpringWithDamping:0.8 initialSpringVelocity:3 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         
         //coverImage
         CGRect frame = swipeCell.coverImage.frame;
@@ -95,11 +95,17 @@
         
         //bgView
         CGRect frame2 = swipeCell.bgView.frame;
-        frame2.size = CGSizeMake(swipeCell.bgView.frame.size.width + [self Suit:30], swipeCell.bgView.frame.size.height + [self Suit:30]);
+        frame2.size = CGSizeMake(swipeCell.bgView.frame.size.width + [self Suit:30], swipeCell.bgView.frame.size.height + [self Suit:20]);
         frame2.origin.x -= [self Suit:15];
         swipeCell.bgView.frame = frame2;
         
         swipeCell.bgView.alpha = 1.0;
+        
+        //titleView
+        CGRect frame3 = swipeCell.titleView.frame;
+        frame3.size = CGSizeMake(swipeCell.titleView.frame.size.width + [self Suit:30], swipeCell.titleView.frame.size.height);
+        frame3.origin.x -= [self Suit:15];
+        swipeCell.titleView.frame = frame3;
         
     } completion:^(BOOL finished) {
         self.collectionView.scrollEnabled = NO;
@@ -117,7 +123,7 @@
     
     CardAnimationCell *swipeCell = (CardAnimationCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
     
-    [UIView animateWithDuration:0.8 delay:0 usingSpringWithDamping:0.8 initialSpringVelocity:3 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+    [UIView animateWithDuration:0.6 delay:0 usingSpringWithDamping:0.8 initialSpringVelocity:3 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         
         //coverImage
         CGRect frame = swipeCell.coverImage.frame;
@@ -126,11 +132,17 @@
         
         //bgView
         CGRect frame2 = swipeCell.bgView.frame;
-        frame2.size = CGSizeMake(swipeCell.bgView.frame.size.width - [self Suit:30], swipeCell.bgView.frame.size.height - [self Suit:30]);
+        frame2.size = CGSizeMake(swipeCell.bgView.frame.size.width - [self Suit:30], swipeCell.bgView.frame.size.height - [self Suit:20]);
         frame2.origin.x += [self Suit:15];
         swipeCell.bgView.frame = frame2;
         
         swipeCell.bgView.alpha = 0.0;
+        
+        //titleView
+        CGRect frame3 = swipeCell.titleView.frame;
+        frame3.size = CGSizeMake(swipeCell.titleView.frame.size.width - [self Suit:30], swipeCell.titleView.frame.size.height);
+        frame3.origin.x += [self Suit:15];
+        swipeCell.titleView.frame = frame3;
         
     } completion:^(BOOL finished) {
         self.collectionView.scrollEnabled = YES;

@@ -73,25 +73,22 @@
     self.topImageView.contentMode = UIViewContentModeScaleToFill;
     [headView addSubview:self.topImageView];
     
-    self.titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 300, ScreenWidth, 100)];
-    self.titleView.backgroundColor = [UIColor whiteColor];
-    [headView addSubview:self.titleView];
-    
-    UILabel *titleLabel = [UILabel labelWithTitle:@"标题标题标题标题标题标题标题标题标题标题标题标题标题标题" AndColor:@"515151" AndFont:16 AndAlignment:NSTextAlignmentLeft];
-    [self.titleView addSubview:titleLabel];
-    titleLabel.numberOfLines = 2;
-    [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.titleView.mas_top).offset(15);
-        make.left.equalTo(self.titleView.mas_left).offset(15);
-        make.centerX.equalTo(self.titleView.mas_centerX);
+    self.titleLabel = [UILabel labelWithTitle:@"This is a title, this is a title, this is a title" AndColor:@"515151" AndFont:16 AndAlignment:NSTextAlignmentLeft];
+    [headView addSubview:self.titleLabel];
+    self.titleLabel.numberOfLines = 1;
+    [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.equalTo(self.topImageView.mas_bottom).offset(15);
+        make.left.equalTo(headView.mas_left).offset(15);
+        make.centerX.equalTo(headView.mas_centerX);
+        make.bottom.equalTo(headView.mas_bottom).offset(-70);
     }];
     
     //价格
-    UILabel *priceLabel = [UILabel labelWithTitle:@"价格: ¥10000.00" AndColor:@"8a8a8a" AndFont:15 AndAlignment:NSTextAlignmentLeft];
-    [self.titleView addSubview:priceLabel];
-    [priceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(titleLabel.mas_bottom).offset(5);
-        make.left.equalTo(titleLabel.mas_left);
+    self.priceLabel = [UILabel labelWithTitle:@"Price: $1000.00" AndColor:@"8a8a8a" AndFont:15 AndAlignment:NSTextAlignmentLeft];
+    [headView addSubview:self.priceLabel];
+    [self.priceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.titleLabel.mas_bottom).offset(5);
+        make.left.equalTo(self.titleLabel.mas_left);
     }];
     
     
@@ -111,7 +108,7 @@
     }
     
     
-    cell.textLabel.text = [NSString stringWithFormat:@"第%ld行", indexPath.row+1];
+    cell.textLabel.text = [NSString stringWithFormat:@"%ld", indexPath.row+1];
     
     
     return cell;

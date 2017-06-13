@@ -18,9 +18,9 @@
         shadowView1.layer.cornerRadius = 5;
         shadowView1.clipsToBounds = NO;
         shadowView1.layer.shadowColor = [UIColor colorWithHexString:@"8a8a8a" alpha:1.0].CGColor;
-        shadowView1.layer.shadowOffset = CGSizeMake(2, 2);
+        shadowView1.layer.shadowOffset = CGSizeMake(0, 5);
         shadowView1.layer.shadowOpacity = 0.8;
-        shadowView1.layer.shadowRadius = 5;
+        shadowView1.layer.shadowRadius = 10;
         [self addSubview:shadowView1];
         [shadowView1 mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self.mas_top);
@@ -44,8 +44,8 @@
         }];
         
         //标题
-        self.title = [UILabel labelWithTitle:@"标题标题标题标题标题标题标题标题标题标题标题标题标题标题" AndColor:@"515151" AndFont:15 AndAlignment:NSTextAlignmentLeft];
-        self.title.numberOfLines = 2;
+        self.title = [UILabel labelWithTitle:@"This is a title, this is a title, this is a title" AndColor:@"515151" AndFont:16 AndAlignment:NSTextAlignmentLeft];
+        self.title.numberOfLines = 1;
         [self.bgView addSubview:self.title];
         [self.title mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self.bgView.mas_top).offset([self Suit:270]);
@@ -54,14 +54,14 @@
         }];
         
         //价格
-        self.price = [UILabel labelWithTitle:@"价格: ¥10000.00" AndColor:@"8a8a8a" AndFont:14 AndAlignment:NSTextAlignmentLeft];
+        self.price = [UILabel labelWithTitle:@"Price: $1000.00" AndColor:@"8a8a8a" AndFont:15 AndAlignment:NSTextAlignmentLeft];
         [self.bgView addSubview:self.price];
         [self.price mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self.title.mas_bottom).offset([self Suit:5]);
             make.left.equalTo(self.bgView.mas_left).offset([self Suit:15]);
         }];
         
-        self.favoriteLabel = [UILabel labelWithTitle:@"1000人评价:" AndColor:@"8a8a8a" AndFont:14 AndAlignment:NSTextAlignmentLeft];
+        self.favoriteLabel = [UILabel labelWithTitle:@"100 comments:" AndColor:@"8a8a8a" AndFont:14 AndAlignment:NSTextAlignmentLeft];
         [self.bgView addSubview:self.favoriteLabel];
         [self.favoriteLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self.price.mas_bottom).offset([self Suit:15]);

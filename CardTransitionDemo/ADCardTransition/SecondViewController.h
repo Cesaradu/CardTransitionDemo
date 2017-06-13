@@ -13,6 +13,7 @@
 @property (nonatomic, assign) NSInteger index;//点击第几张
 @property (nonatomic, strong) UIButton *backBtn;//返回按钮
 @property (nonatomic, strong) UIImageView *topImageView;//顶部图片
-@property (nonatomic, strong) UIView *titleView;//标题视图
+@property (nonatomic, strong) UILabel *titleLabel;//标题
+@property (nonatomic, strong) UILabel *priceLabel;//价格
 
 @end

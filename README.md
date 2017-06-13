@@ -3,4 +3,4 @@
 
 效果图
 
-![image](https://github.com/Cesaradu/CardTransitionDemo/blob/master/CardTransitionDemo.gif)
+![image](https://github.com/Cesaradu/CardTransitionDemo/blob/master/CardTransition.gif)
